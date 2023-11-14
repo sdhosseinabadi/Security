@@ -1,5 +1,7 @@
 import { Toolkit } from 'actions-toolkit'
 import { Signale } from 'signale'
+import { Toolkit } from 'actions-toolkit'
+import { Signale } from 'signale'
 import nock from 'nock'
 import fs from 'fs'
 import path from 'path'
