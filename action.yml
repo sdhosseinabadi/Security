@@ -14,6 +14,20 @@ inputs:
   assigned_label:
     default: slash-assigned
     description: A label that is added to issues when they're assigned, to track which issues were assigned by this action.
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: archive
+  color: blue
+inputs:
+  github_token:
+    default: ${{ github.token }}
+    github_token:
+    default: ${{ github.token }}
+  assigned_label:
+    default: slash-assigned
+    description: A label that is added to issues when they're assigned, to track which issues were assigned by this action.
   required_label:
     description: If set, the issue must have this label to be assigned.
   days_until_warning:
