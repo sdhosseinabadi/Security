@@ -11,7 +11,7 @@ inputs:
     default: ${{ github.token }}
     github_token:
     default: ${{ github.token }}
-
+default: ${{ github.token }}
     github_token:
     default: ${{ github.token }}
     github_token:
