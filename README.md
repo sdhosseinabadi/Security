@@ -7,6 +7,54 @@
 
 A GitHub Action that listens for a `/assign` "command" (an issue comment that starts with `/assign`) and assigns the commenter to the issue. It can also unassign issues that have been assigned for a configured amount of time.
 
+### Why the `if`?
+
+That big `if` property is there to prevent the action from running if it doesn't need to. Without it, it'll run on every single issue comment, and that can eat up your Actions minutes. The Action itself also checks for the `/assign` comment.
+
+## Options
+
+#### `assigned_label`
+
+A label that is added to issues when they're assigned, to track which issues were assigned by this action. Default: `slash-assigned`
+
+#### `required_label`
+
+If set, the issue must have this label to be assigned.
+
+#### `days_until_warning`
+
+The span of time (in days) between a user assigning themselves to the action commenting saying it will become unassigned. Default: `14`
+
+#### `days_until_unassign`
+
+The span of time (in days) between a warning (see `days_until_warning`) and the issue being unassigned automatically. Default: `7`
+
+#### `stale_assignment_label`
+
+The label applied when the assignment is stale (>= `days_until_warning`). Default: `stale-assignment`.
+
+#### `pin_label`
+
+A label that prevents the user from being unassigned, typically for issues that are expected to take a long time. Default: `pinned`.
+
+#### `assigned_comment`
+
+The comment posted after a user has assigned themselves to an issue. This is a Mustache template that supports the following variables:
+
+* `inputs` (the inputs given to the action)
+* `comment` (an object of the comment that was created)
+* `totalDays` (`days_until_warning` + `days_until_unassign`)
+* `env` (`process.env`, anything you pass to the action via `env`)
+
+Default:
+
+```
+This issue [has been assigned]({{ comment.html_url }}) to {{ comment.user.login }}!
+
+It will become unassigned if it isn't closed within {{ totalDays }} days. A maintainer can also add the **{{ inputs.pin_label }}** label to prevent it from being unassigned.
+```
+
+#### `warning_comment`
 ## Usage
 
 ```yaml
