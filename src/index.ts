@@ -5,14 +5,21 @@ import scheduleHandler from './lib/schedule-handler'
 export interface Inputs {
   assigned_label: string
   required_label?: string
+  required_label?: string
+  
   pin_label?: string
   days_until_warning: string
+  days_until_unassign: string
+  ays_until_warning: string
   days_until_unassign: string
   stale_assignment_label: string
   assigned_comment: string
   warning_comment: string
+  assigned_comment: string
+  warning_comment: string
   fail_comment: string
   [key: string]: string | undefined
+  
 }
 
 export type SlashAssignToolkit = Toolkit<Inputs>
@@ -22,7 +29,24 @@ async function slashAssignAction (tools: SlashAssignToolkit) {
     case 'issue_comment':
       await commentHandler(tools)
       break
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
     case 'schedule':
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
+    case 'workflow_dispatch':
+      await scheduleHandler(tools)
+       await commentHandler(tools)
+      break
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
+    case 'schedule':
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
     case 'workflow_dispatch':
       await scheduleHandler(tools)
       break

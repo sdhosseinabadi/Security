@@ -3,6 +3,7 @@
 
 <p align="center"><a href="https://github.com/JasonEtco/slash-assign-action"><img alt="GitHub Actions status" src="https://github.com/JasonEtco/slash-assign-action/workflows/CI/badge.svg"></a> <a href="https://codecov.io/gh/JasonEtco/slash-assign-action"><img src="https://codecov.io/gh/JasonEtco/slash-assign-action/branch/main/graph/badge.svg" /></a></p>
 
+
 ---
 
 A GitHub Action that listens for a `/assign` "command" (an issue comment that starts with `/assign`) and assigns the commenter to the issue. It can also unassign issues that have been assigned for a configured amount of time.
