@@ -14,6 +14,7 @@ export interface Inputs {
   warning_comment: string
   fail_comment: string
   [key: string]: string | undefined
+  
 }
 
 export type SlashAssignToolkit = Toolkit<Inputs>
