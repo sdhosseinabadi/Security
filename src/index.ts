@@ -5,6 +5,7 @@ import scheduleHandler from './lib/schedule-handler'
 export interface Inputs {
   assigned_label: string
   required_label?: string
+  
   pin_label?: string
   days_until_warning: string
   days_until_unassign: string
