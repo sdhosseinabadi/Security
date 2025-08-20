@@ -10,14 +10,11 @@ export interface Inputs {
   pin_label?: string
   days_until_warning: string
   days_until_unassign: string
+  ays_until_warning: string
+  days_until_unassign: string
   stale_assignment_label: string
   assigned_comment: string
   warning_comment: string
-  fail_comment: string
-  pin_label?: string
-  days_until_warning: string
-  days_until_unassign: string
-  stale_assignment_label: string
   assigned_comment: string
   warning_comment: string
   fail_comment: string
@@ -31,6 +28,17 @@ async function slashAssignAction (tools: SlashAssignToolkit) {
   switch (tools.context.event) {
     case 'issue_comment':
       await commentHandler(tools)
+      break
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
+    case 'schedule':
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
+    case 'workflow_dispatch':
+      await scheduleHandler(tools)
+       await commentHandler(tools)
       break
           case 'issue_comment':
       await commentHandler(tools)
