@@ -24,6 +24,9 @@ async function slashAssignAction (tools: SlashAssignToolkit) {
     case 'issue_comment':
       await commentHandler(tools)
       break
+          case 'issue_comment':
+      await commentHandler(tools)
+      break
     case 'schedule':
     case 'workflow_dispatch':
       await scheduleHandler(tools)
